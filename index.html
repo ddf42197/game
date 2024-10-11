@@ -107,7 +107,11 @@
         }
         function names() {
             let num = parseInt(inp.value)
-            if (i>0) {
+            if (inp.value=="") {
+                dis.innerHTML=`Ma Chuda`
+               
+            }
+            else if (i>0) {
                 i--
                 if (num<math) {
                     dis.innerHTML = `<div class="red">the number is higher than ${num}<br><br><div class="r">life=${i+1}</div></div>`
@@ -125,7 +129,8 @@
                 dis.innerHTML="<div class='re'>WIN</div>"
                 console.log("wiin")
                 hide.style.display="none"
-            }else {
+            } 
+            else {
                 console.log("lifes")
                 dis.innerHTML=`lose number was ${math}<div class="r">YOU ARE A DISCRACE TO HUMANITY</div>`
                 hide.style.display="none"
