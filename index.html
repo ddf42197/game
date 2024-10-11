@@ -82,7 +82,7 @@
         <input type="number" min="1" max="100" class="inp" value="" placeholder="Guess the number"><button class="btnn" onclick="names()">Check</button>
     </div>
     <div class="dis">
-        you have only 8 lives
+        you have only 6 lives
         to have to guess a number
         <br>
         <br>
@@ -93,7 +93,7 @@
         let hide = document.querySelector(".hide")
         let btn = document.querySelector(".btn")
         let inp = document.querySelector(".inp")
-        let i = 7
+        let i = 5
         let math = Math.round(Math.random()*100)
         let id = document.querySelector(".id")
         id.innerHTML=`game id= ${math.toString(2)}`
