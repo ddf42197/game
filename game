@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Addition</title>
+    <style>
+        body {
+    background-image: linear-gradient(black,rgb(255, 255, 255)); /* Replace with your image URL */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-size: cover; /* Make the image cover the entire area */
+    background-position: center; /* Center the image */
+    height: 90vh; /* Set the height of the body (optional) */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}h1{
+    font-size: 50px;
+    color: rgb(255, 0, 0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 0px 10px rgba(255, 0, 0, 0.5);
+}
+.btn{
+    font-family: cursive;
+    padding: 5px 10px;
+    font-weight: 900;
+    font-size: 30px;
+    border-radius: 10px;
+}
+.inp{
+    font-size: 20px;
+}.btnn{
+    height: 29px;
+}
+.hide{
+    display: flex;
+}
+.dis{
+    background: #000;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border-radius: 20px;
+}
+.red{
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px white;
+    font-size: 15px;
+}.r{
+    font-size: 20px;
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-weight: 600;
+}.re{
+    color: yellow;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: 50px;
+}
+.lose{
+    color: rgb(255, 0, 0);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+.id{
+    padding: 40px;
+    font-size: 30px;
+    font-family: cursive;
+    color: white;
+}
+    </style>
+</head>
+<body>
+    <h1>Guess The Number</h1>
+    <div class="id">game id=</div>
+    <div><button onclick="start()" class="btn">Start</button></div>
+    <div class="hide">
+        <input type="number" min="1" max="100" class="inp" value="" placeholder="Guess the number"><button class="btnn" onclick="names()">Check</button>
+    </div>
+    <div class="dis">
+        you have only 8 lives
+        to have to guess a number
+        <br>
+        <br>
+        <br>
+        <div class="red">the number is between 1 and 100</div>
+    </div>
+    <script>
+        let hide = document.querySelector(".hide")
+        let btn = document.querySelector(".btn")
+        let inp = document.querySelector(".inp")
+        let i = 7
+        let math = Math.round(Math.random()*100)
+        let id = document.querySelector(".id")
+        id.innerHTML=`game id= ${math.toString(2)}`
+        let dis = document.querySelector(".dis")
+        dis.style.display="none"
+        hide.style.display="none"
+        function start() {
+            dis.style.display=""
+            hide.style.display="flex"
+            btn.style.display="none"
+        }
+        function names() {
+            let num = parseInt(inp.value)
+            if (i>0) {
+                i--
+                if (num<math) {
+                    dis.innerHTML = `<div class="red">the number is higher than ${num}<br><br><div class="r">life=${i+1}</div></div>`
+                    console.log("lower",math)
+                }
+                else if (num>math) {
+                    dis.innerHTML = `<div class="red">the number is lower than ${num}<br><br><div class="r">life=${i+1}</div></div>`
+                    console.log("upper")
+                }else{
+                    dis.innerHTML="<div class='re'>WIN</div>"
+                console.log("wiin")
+                hide.style.display="none"
+                }
+            }else if (num==math){
+                dis.innerHTML="<div class='re'>WIN</div>"
+                console.log("wiin")
+                hide.style.display="none"
+            }else {
+                console.log("lifes")
+                dis.innerHTML=`lose number was ${math}<div class="r">YOU ARE A DISCRACE TO HUMANITY</div>`
+                hide.style.display="none"
+            }
+        }
+    </script>
+</body>
+</html>
